@@ -1,0 +1,552 @@
+Program.Sub.ScreenSU.Start
+gui.F_Main..create
+gui.F_Main..caption("Bin to Bin Transfer")
+gui.F_Main..size(13290,6375)
+gui.F_Main..minx(0)
+gui.F_Main..miny(0)
+gui.F_Main..position(0,0)
+gui.F_Main..event(resize,f_main_resize)
+gui.F_Main..event(unload,f_main_unload)
+gui.F_Main..alwaysontop(False)
+gui.F_Main..fontname("Arial")
+gui.F_Main..fontsize(8)
+gui.F_Main..forecolor(0)
+gui.F_Main..fontstyle(,,,,)
+gui.F_Main..BackColor(-2147483633)
+gui.F_Main..controlbox(True)
+gui.F_Main..maxbutton(True)
+gui.F_Main..minbutton(True)
+gui.F_Main..mousepointer(0)
+gui.F_Main..moveable(True)
+gui.F_Main..sizeable(True)
+gui.F_Main..ShowInTaskBar(True)
+gui.F_Main..titlebar(True)
+gui.F_Main.txtFromBin.create(textbox,"",True,1215,300,0,200,400,True,0,Arial,8,-2147483643,1)
+gui.F_Main.txtFromBin.event(lostfocus,txtfrombin_lostfocus)
+gui.F_Main.txtFromBin.defaultvalue("")
+gui.F_Main.txtFromBin.controlgroup(0)
+gui.F_Main.cmdFromBin.create(button)
+gui.F_Main.cmdFromBin.caption("^")
+gui.F_Main.cmdFromBin.visible(True)
+gui.F_Main.cmdFromBin.size(375,375)
+gui.F_Main.cmdFromBin.zorder(0)
+gui.F_Main.cmdFromBin.position(1455,390)
+gui.F_Main.cmdFromBin.enabled(True)
+gui.F_Main.cmdFromBin.fontname("Arial")
+gui.F_Main.cmdFromBin.fontsize(8)
+gui.F_Main.cmdFromBin.event(click,cmdfrombin_click)
+gui.F_Main.cmdFromBin.defaultvalue("")
+gui.F_Main.cmdFromBin.controlgroup(0)
+gui.F_Main.txtToBin.create(textbox,"",True,1215,300,0,5800,400,True,0,Arial,8,-2147483643,1)
+gui.F_Main.txtToBin.event(lostfocus,txttobin_lostfocus)
+gui.F_Main.txtToBin.defaultvalue("")
+gui.F_Main.txtToBin.controlgroup(0)
+gui.F_Main.cmdToBin.create(button)
+gui.F_Main.cmdToBin.caption("^")
+gui.F_Main.cmdToBin.visible(True)
+gui.F_Main.cmdToBin.size(375,375)
+gui.F_Main.cmdToBin.zorder(0)
+gui.F_Main.cmdToBin.position(7060,390)
+gui.F_Main.cmdToBin.enabled(True)
+gui.F_Main.cmdToBin.fontname("Arial")
+gui.F_Main.cmdToBin.fontsize(8)
+gui.F_Main.cmdToBin.event(click,cmdtobin_click)
+gui.F_Main.cmdToBin.defaultvalue("")
+gui.F_Main.cmdToBin.controlgroup(0)
+gui.F_Main.lbl1.create(label,"From Bin",True,1935,255,1,200,200,True,0,Arial,8,-2147483633,0)
+gui.F_Main.lbl1.defaultvalue("")
+gui.F_Main.lbl1.controlgroup(0)
+gui.F_Main.lbl2.create(label,"To Bin",True,1935,255,1,5800,200,True,0,Arial,8,-2147483633,0)
+gui.F_Main.lbl2.defaultvalue("")
+gui.F_Main.lbl2.controlgroup(0)
+gui.F_Main.txtFromLoc.create(textbox,"",True,585,300,0,1900,400,False,0,Arial,8,-2147483643,1)
+gui.F_Main.txtFromLoc.defaultvalue("")
+gui.F_Main.txtFromLoc.controlgroup(0)
+gui.F_Main.txtFromDesc.create(textbox,"",True,2685,300,0,2555,400,False,0,Arial,8,-2147483643,1)
+gui.F_Main.txtFromDesc.defaultvalue("")
+gui.F_Main.txtFromDesc.controlgroup(0)
+gui.F_Main.txtToLoc.create(textbox,"",True,585,300,0,7495,400,False,0,Arial,8,-2147483643,1)
+gui.F_Main.txtToLoc.defaultvalue("")
+gui.F_Main.txtToLoc.controlgroup(0)
+gui.F_Main.txtToDesc.create(textbox,"",True,2685,300,0,8150,405,False,0,Arial,8,-2147483643,1)
+gui.F_Main.txtToDesc.defaultvalue("")
+gui.F_Main.txtToDesc.controlgroup(0)
+gui.F_Main.gsflexgrid.create(gsflexgrid)
+gui.F_Main.gsflexgrid.FixedRows(0)
+gui.F_Main.gsflexgrid.FixedCols(0)
+gui.F_Main.gsflexgrid.visible(True)
+gui.F_Main.gsflexgrid.size(12630,3990)
+gui.F_Main.gsflexgrid.zorder(0)
+gui.F_Main.gsflexgrid.position(200,1055)
+gui.F_Main.gsflexgrid.enabled(True)
+gui.F_Main.cmdOK.create(button)
+gui.F_Main.cmdOK.caption("OK")
+gui.F_Main.cmdOK.visible(True)
+gui.F_Main.cmdOK.size(855,375)
+gui.F_Main.cmdOK.zorder(0)
+gui.F_Main.cmdOK.position(200,5200)
+gui.F_Main.cmdOK.enabled(True)
+gui.F_Main.cmdOK.fontname("Arial")
+gui.F_Main.cmdOK.fontsize(8)
+gui.F_Main.cmdOK.event(click,cmdok_click)
+gui.F_Main.cmdOK.defaultvalue("")
+gui.F_Main.cmdOK.controlgroup(0)
+gui.F_Main.chkAll.create(checkbox)
+gui.F_Main.chkAll.caption("All")
+gui.F_Main.chkAll.visible(True)
+gui.F_Main.chkAll.size(780,255)
+gui.F_Main.chkAll.zorder(0)
+gui.F_Main.chkAll.position(11155,415)
+gui.F_Main.chkAll.enabled(True)
+gui.F_Main.chkAll.alignment(0)
+gui.F_Main.chkAll.fontname("Arial")
+gui.F_Main.chkAll.fontsize(8)
+gui.F_Main.chkAll.defaultvalue("")
+gui.F_Main.chkAll.controlgroup(0)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.UDT.uBin.Define("Part",String,PART)
+Variable.UDT.uBin.Define("Location",String,LOCATION)
+Variable.UDT.uBin.Define("Lot",String,LOT)
+Variable.UDT.uBin.Define("Heat",String,HEAT)
+Variable.UDT.uBin.Define("Serial",String,SERIAL_NUMBER)
+Variable.UDT.uBin.Define("Qty",String,QUANTITY)
+Variable.UDT.uBin.Define("Cost",String,UNIT_COST)
+Variable.UDT.uBin.Define("Blank",String)
+Variable.UDT.uBin.Define("Date",Date)
+Variable.UDT.uBin.Define("Y",String)
+Variable.UDT.uBin.Define("User",String)
+Variable.UDT.uBin.Define("iTransferQty",Float)
+Variable.UDT.uBin.Define("sCheck",String)
+Variable.uGlobal.uBin.Declare("uBin")
+Program.Sub.Preflight.End
+
+program.sub.cmdok_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdok_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sQuery.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sBin.Declare(String)
+
+F.Intrinsic.String.UCase(V.Screen.F_Main!txtFromBin.Text,V.Local.sBin)
+Gui.F_Main.txtFromBin.Text(V.Local.sBin)
+F.Intrinsic.String.UCase(V.Screen.F_Main!txtToBin.Text,V.local.sBin)
+Gui.F_Main.txtToBin.Text(V.Local.sBin)
+
+F.Intrinsic.Control.If(V.uGlobal.uBin.UBound,>,-1)
+	F.Intrinsic.Control.If(V.Screen.F_Main!txtFromBin.Text,<>,V.Screen.F_Main!txtToBin.Text)
+		F.Intrinsic.Control.If(V.Screen.F_Main!txtFromBin.Text,<>,"")
+		F.Intrinsic.Control.AndIf(V.Screen.F_Main!txtToBin.Text,<>,"")
+
+			F.Intrinsic.UI.Msgbox("Are you sure you want to transfer?",,4,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"6")
+				F.Intrinsic.Control.If(V.Screen.F_Main!txtFromLoc.Text,<>,"")
+					F.Intrinsic.String.Concat("Select * from ATG_3963_BAD_BINS where BIN='",V.Screen.F_Main!txtFromBin.Text,"' and LOCATION='",V.Screen.F_Main!txtFromLoc.Text,"'",V.Local.sQuery)
+				F.Intrinsic.Control.Else
+						F.Intrinsic.String.Concat("Select * from ATG_3963_BAD_BINS where BIN='",V.Screen.F_Main!txtFromBin.Text,"'",V.Local.sQuery)
+				F.Intrinsic.Control.EndIf
+				F.ODBC.Connection!Conx.OpenLocalRecordsetRO("rst",V.Local.sQuery)
+				F.Intrinsic.Control.If(V.ODBC.Conx!rst.EOF,=,True)
+					F.ODBC.Conx!rst.Close
+				F.Intrinsic.Control.Else
+					F.ODBC.Conx!rst.Close
+					F.Intrinsic.UI.Msgbox("Bin transfer not allowed")
+					F.Intrinsic.Control.ExitSub
+				F.Intrinsic.Control.EndIf
+
+				F.Intrinsic.Control.CallSub(Build_file)
+
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("To and From Bins are the same")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("No Inventory to Transfer")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdok_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3963_INV_BIN_TRANSFER.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdok_click.end
+
+program.sub.cmdfrombin_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdfrombin_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(Long)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.String.split("Bin*!*Location*!*Description","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("1000*!*1000*!*3000","*!*",V.Local.iwidths)
+
+F.Intrinsic.UI.Browser("Select a From Bin","Conx","Select * From BIN_MASTER Where BIN NOT IN (Select BIN From ATG_3963_BAD_BINS) ORDER BY BIN, LOCATION",V.Local.stitles,V.Local.iWidths,5000,5000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_Main.txtFromBin.Text(V.Local.sRet(0).trim)
+	Gui.F_Main.txtFromLoc.Text(V.Local.sRet(1).trim)
+	Gui.F_Main.txtFromDesc.Text(V.Local.sRet(2).trim)
+
+	F.Intrinsic.Control.CallSub(Txtfrombin_lostfocus)
+F.Intrinsic.Control.EndIf
+
+'Gui.F_Main.txtFromBin.SetFocus
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdfrombin_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3963_INV_BIN_TRANSFER.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdfrombin_click.end
+
+program.sub.cmdtobin_click.start
+F.Intrinsic.Control.SetErrorHandler("cmdtobin_click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(Long)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.String.split("Bin*!*Location*!*Description","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("1000*!*1000*!*3000","*!*",V.Local.iwidths)
+
+F.Intrinsic.UI.Browser("Select a To Bin","Conx","Select * From BIN_MASTER ORDER BY BIN, LOCATION",V.Local.stitles,V.Local.iWidths,5000,5000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.F_Main.txtToBin.Text(V.Local.sRet(0).Trim)
+	Gui.F_Main.txtToLoc.Text(V.Local.sRet(1).trim)
+	Gui.F_Main.txtToDesc.Text(V.Local.sRet(2).trim)
+F.Intrinsic.Control.EndIf
+
+Gui.F_Main.txtToBin.SetFocus
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("cmdtobin_click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3963_INV_BIN_TRANSFER.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.cmdtobin_click.end
+
+program.sub.f_main_unload.start
+F.ODBC.Connection!Conx.Close
+F.Intrinsic.Control.End
+
+program.sub.f_main_unload.end
+
+program.sub.f_main_resize.start
+
+program.sub.f_main_resize.end
+
+program.sub.txtfrombin_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txtfrombin_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Load UDT and populate Flexgrid
+
+V.Local.sQuery.Declare(String)
+V.Local.sBin.Declare(String)
+
+'
+'
+
+F.Intrinsic.Control.If(V.Screen.F_Main!txtFromBin.Text,<>,"")
+
+	F.Intrinsic.Control.If(V.Screen.F_Main!txtFromLoc.Text,<>,"")
+		F.Intrinsic.String.Concat("Select * from ATG_3963_BAD_BINS where BIN='",V.Screen.F_Main!txtFromBin.Text,"' and LOCATION='",V.Screen.F_Main!txtFromLoc.Text,"'",V.Local.sQuery)
+	F.Intrinsic.Control.Else
+			F.Intrinsic.String.Concat("Select * from ATG_3963_BAD_BINS where BIN='",V.Screen.F_Main!txtFromBin.Text,"'",V.Local.sQuery)
+	F.Intrinsic.Control.EndIf
+
+	F.ODBC.Connection!Conx.OpenLocalRecordsetRO("rstBad",V.Local.sQuery)
+	F.Intrinsic.Control.If(V.ODBC.Conx!rstBad.EOF,=,True)
+	F.ODBC.Conx!rstBad.Close
+
+		F.Intrinsic.String.UCase(V.Screen.F_Main!txtFromBin.Text,V.Local.sBin)
+		Gui.F_Main.txtFromBin.Text(V.Local.sBin)
+
+		F.Intrinsic.String.Concat("Select PART, LOCATION, LOT, HEAT, SERIAL_NUMBER, QUANTITY, UNIT_COST from V_ITEM_MASTER where BIN='",V.local.sBin,"' and LOCATION='",V.Screen.F_Main!txtFromLoc.Text,"'",V.Local.sQuery)
+		F.ODBC.Connection!Conx.OpenLocalRecordsetRO("rst",V.Local.sQuery)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("Conx","rst","v.uglobal.uBin",False,100000)
+		F.ODBC.Conx!rst.Close
+		Gui.F_Main.gsflexgrid.LoadFromUDT("uGlobal.uBin","Part::0*!*Location::1*!*Lot::2*!*Heat::3*!*Serial::4*!*Qty::5*!*Cost::6",2)
+		Gui.F_Main.gsflexgrid.FixedRows(1)
+
+	F.Intrinsic.Control.Else
+		F.ODBC.Conx!rstBad.Close
+		F.Intrinsic.UI.Msgbox("Invalid Bin")
+		Gui.F_Main.txtFromBin.Text("")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("txtfrombin_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3963_INV_BIN_TRANSFER.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txtfrombin_lostfocus.end
+
+Program.Sub.Main.Start
+'1/23/12
+'Jessica
+
+F.ODBC.Connection!Conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Control.CallSub(Buildstyle)
+
+Gui.F_Main..Show
+
+Program.Sub.Main.End
+
+Program.Sub.Buildstyle.Start
+Gui.F_Main.gsflexgrid.Cols(9)
+Gui.F_Main.gsflexgrid.Rows(2)
+
+Gui.F_Main.gsflexgrid.SetColumnPercentages(".19:.05:.15:.15:.15:.08:.08:.10:.05")
+
+'Column 0 Style 1
+Gui.F_Main.gsflexgrid.TextMatrix(0,0,"Part")
+Gui.F_Main.gsflexgrid.BuildStyle(1,0,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(1,0,"Format","Alignment",4)
+'Column 0, Style 2
+Gui.F_Main.gsflexgrid.BuildStyle(2,0,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(2,0,"Format","Alignment",2)
+'Column 1, Style 1
+Gui.F_Main.gsflexgrid.TextMatrix(1,0,"Loc")
+Gui.F_Main.gsflexgrid.BuildStyle(1,1,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(1,1,"Format","Alignment",4)
+'Column 1, Style 2
+Gui.F_Main.gsflexgrid.BuildStyle(2,1,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(2,1,"Format","Alignment",2)
+'Column 2, Style 1
+Gui.F_Main.gsflexgrid.TextMatrix(2,0,"Lot")
+Gui.F_Main.gsflexgrid.BuildStyle(1,2,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(1,2,"Format","Alignment",4)
+'Column 2, Style 2
+Gui.F_Main.gsflexgrid.BuildStyle(2,2,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(2,2,"Format","Alignment",2)
+'Column 3, Style 1
+Gui.F_Main.gsflexgrid.TextMatrix(3,0,"Heat")
+Gui.F_Main.gsflexgrid.BuildStyle(1,3,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(1,3,"Format","Alignment",4)
+'Column 3, Style 2
+Gui.F_Main.gsflexgrid.BuildStyle(2,3,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(2,3,"Format","Alignment",2)
+'Column 4, Style 1
+Gui.F_Main.gsflexgrid.TextMatrix(4,0,"Serial")
+Gui.F_Main.gsflexgrid.BuildStyle(1,4,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(1,4,"Format","Alignment",4)
+'Column 4, Style 2
+Gui.F_Main.gsflexgrid.BuildStyle(2,4,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(2,4,"Format","Alignment",2)
+'Column 5, Style 1
+Gui.F_Main.gsflexgrid.TextMatrix(5,0,"Qty")
+Gui.F_Main.gsflexgrid.BuildStyle(1,5,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(1,5,"Format","Alignment",4)
+'Column 5, Style 2
+Gui.F_Main.gsflexgrid.BuildStyle(2,5,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(2,5,"Format","Alignment",2)
+'Column 6, Style 1
+Gui.F_Main.gsflexgrid.TextMatrix(6,0,"Unit Cost")
+Gui.F_Main.gsflexgrid.BuildStyle(1,6,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(1,6,"Format","Alignment",4)
+'Column 6, Style 2
+Gui.F_Main.gsflexgrid.BuildStyle(2,6,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(2,6,"Format","Alignment",2)
+'Column 7, Style 1
+Gui.F_Main.gsflexgrid.TextMatrix(7,0,"Transfer Qty")
+Gui.F_Main.gsflexgrid.BuildStyle(1,7,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(1,7,"Format","Alignment",4)
+'Column 7, Style 2
+Gui.F_Main.gsflexgrid.BuildStyle(2,7,"Type","Locked",False)
+Gui.F_Main.gsflexgrid.BuildStyle(2,7,"Format","Alignment",6)
+'Column 8, Style 1
+Gui.F_Main.gsflexgrid.TextMatrix(8,0,"Select")
+Gui.F_Main.gsflexgrid.BuildStyle(1,8,"Type","Locked",True)
+Gui.F_Main.gsflexgrid.BuildStyle(1,8,"Format","Alignment",4)
+'Column 8, Style 2
+Gui.F_Main.gsflexgrid.BuildStyle(2,8,"Type","Checkbox",False)
+Gui.F_Main.gsflexgrid.BuildStyle(2,8,"Format","Alignment",4)
+
+
+Gui.F_Main.gsflexgrid.ApplyStyle(0,1)
+Gui.F_Main.gsflexgrid.FixedRows(1)
+
+
+Program.Sub.Buildstyle.End
+
+Program.Sub.Build_File.Start
+F.Intrinsic.Control.SetErrorHandler("Build_File_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.iCount.Declare(Long)
+
+V.Local.iRow.Declare(Long)
+V.Local.iOrdinal.Declare(Long)
+V.Local.sRet.Declare(String)
+V.Local.sFlag.Declare(String)
+V.Local.sAll.Declare(String)
+
+V.Local.sFile.Declare(String)
+V.Local.sText.Declare(String)
+V.Local.sFQN.declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sTemp.Declare(String)
+
+Gui.F_Main..Enabled(False)
+Gui.F_Main..MousePointer(11)
+
+V.Local.sAll.Set(V.Screen.F_Main!chkAll.Value)
+
+F.Intrinsic.Control.If(V.Local.sAll,!=,1)
+
+	V.Local.iRow.Set(V.Screen.F_Main!gsflexgrid.Rows)
+	F.Intrinsic.Math.Sub(V.Local.iRow,1,V.Local.iRow)
+
+	F.Intrinsic.Control.For(V.Local.iCount,1,V.Local.iRow,1)
+		Gui.F_Main.gsflexgrid.ReadRow(V.Local.iCount,V.Local.sRet)
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet(8),=,1)
+			F.Intrinsic.Math.Sub(V.Local.iCount,1,V.Local.iOrdinal)
+			V.uGlobal.uBin(v.Local.iOrdinal)!iTransferQty.Set(V.Local.sRet(7))
+			F.Intrinsic.Control.If(V.Local.sFlag,=,"")
+				V.Local.sFlag.Set(V.Local.iOrdinal)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0}*!*{1}",V.Local.sFlag,V.Local.iOrdinal,V.Local.sFlag)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.intrinsic.Control.Next(V.Local.iCount)
+
+	F.Intrinsic.Variable.UDTFlagAll(V.uGlobal.uBin)
+	F.Intrinsic.Variable.UDTFlagOrdinal(v.uGlobal.uBin,False,v.Local.sFlag)
+	F.Intrinsic.Variable.UDTDeleteFlagged(V.uGlobal.uBin)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.For(V.Local.iCount,0,V.uGlobal.uBin.UBound,1)
+
+	F.Intrinsic.String.GSSPartString(V.uGlobal.uBin(v.Local.iCount)!Part,,V.Local.sPart)
+	
+	V.Local.sTemp.Redim(0,13)
+	V.Local.sTemp(0).Set(V.Local.sPart)
+	V.Local.sTemp(1).set(V.uGlobal.uBin(v.Local.iCount)!Location)
+	F.Intrinsic.Control.If(V.Local.sAll,=,1)
+		V.Local.sTemp(2).Set(V.uGlobal.uBin(v.Local.iCount)!Qty)
+	F.Intrinsic.Control.Else
+		V.Local.sTemp(2).Set(V.uGlobal.uBin(v.Local.iCount)!iTransferQty)
+	F.Intrinsic.Control.EndIf
+	V.Local.sTemp(3).Set(V.screen.F_Main!txtFromBin.text)
+	V.Local.sTemp(4).Set(V.screen.F_Main!txtToBin.text)
+	V.Local.sTemp(5).Set(V.uGlobal.uBin(v.Local.iCount)!Lot)
+	V.Local.sTemp(6).Set(V.uGlobal.uBin(v.Local.iCount)!Heat)
+	V.Local.sTemp(7).Set(V.uGlobal.uBin(v.Local.iCount)!Serial)
+	V.Local.sTemp(8).Set("")
+	V.Local.sTemp(9).Set("")
+	V.Local.sTemp(10).Set(V.Screen.F_Main!txtToLoc.Text)
+	V.Local.sTemp(11).Set("Y")
+	V.Local.sTemp(12).Set(V.Caller.User)
+	V.Local.sTemp(13).Set(V.Ambient.Date.formatYYYYMMDD)
+
+	F.Intrinsic.String.Build("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",V.Local.sTemp(0),V.Local.sTemp(1),V.Local.sTemp(2),V.Local.sTemp(3),V.Local.sTemp(4),V.Local.sTemp(5),V.Local.sTemp(6),V.Local.sTemp(7),V.Local.sTemp(8),V.Local.sTemp(9),V.Local.sTemp(10),V.Local.sTemp(11),V.Local.sTemp(12),V.Local.sTemp(13),V.Local.sTemp)
+	F.Intrinsic.String.Concat(V.Local.sText,V.Local.sTemp,V.Ambient.NewLine,V.local.sText)
+
+
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+
+F.Intrinsic.String.Concat("0",V.Caller.CompanyCode,V.Caller.Terminal,"BIN2BINTRNS",V.Local.sFile)
+F.Intrinsic.String.Concat(V.Caller.FilesDir,"\",V.Local.sFile,V.Local.sFQN)
+F.Intrinsic.File.String2File(V.Local.sFQN,V.Local.sText)
+
+
+
+
+'F.Intrinsic.Debug.CallWrapperDebugEnable
+
+F.Intrinsic.Task.LaunchGSSSync("LOT054UP","-c",V.Local.sFile)
+
+F.Intrinsic.Control.CallSub(Clear)
+
+Gui.F_Main..MousePointer(0)
+Gui.F_Main..Enabled(True)
+
+F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Label("Build_File_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3963_INV_BIN_TRANSFER.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Build_File.End
+
+Program.Sub.Clear.Start
+Gui.F_Main.txtFromBin.Text("")
+Gui.F_Main.txtFromDesc.Text("")
+Gui.F_Main.txtFromLoc.Text("")
+Gui.F_Main.txtToBin.Text("")
+Gui.F_Main.txtToDesc.Text("")
+Gui.F_Main.txtToLoc.Text("")
+
+Gui.F_Main.gsflexgrid.Rows(1)
+
+V.uGlobal.uBin.Redim(-1,-1)
+
+F.Intrinsic.Control.CallSub(Buildstyle)
+
+Program.Sub.Clear.End
+
+program.sub.txttobin_lostfocus.start
+F.Intrinsic.Control.SetErrorHandler("txttobin_lostfocus_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sBin.Declare(String)
+
+F.Intrinsic.String.UCase(V.Screen.F_Main!txtToBin.Text,V.Local.sBin)
+Gui.F_Main.txtToBin.Text(V.Local.sBin)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txttobin_lostfocus_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_3963_INV_BIN_TRANSFER.gas",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+program.sub.txttobin_lostfocus.end
+
+
